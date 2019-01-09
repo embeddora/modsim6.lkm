@@ -31,7 +31,7 @@
 #
 
 
-obj-m+=input_output.o datastruct.o beagle.o
+obj-m+=input_output.o datastruct.o
 ccflags-y := -O2 -DQUASIFLOAT
 
 all:

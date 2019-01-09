@@ -34,6 +34,12 @@
 /* module_init(), module_exit() */
 #include <linux/module.h>
 
+/* A prototype of filp()  */
+#include <linux/fs.h>
+
+/* Segment descriptors */
+#include <linux/uaccess.h>
+
 /* The GPIO interface  */
 #include <linux/gpio.h>
 
@@ -64,6 +70,41 @@ static int __init input_output_gpio_init(void)
 int result = 0;
 
         printk(KERN_INFO "Initialize the TRPZ\n");
+
+struct file *f;
+
+char buf[128];
+
+mm_segment_t fs;
+
+        memset(buf, 0, 128);
+
+        f = filp_open("/etc/_trpz", O_RDONLY, 0);
+
+        if(f == NULL)
+
+                printk(KERN_ALERT "Can't open a file from kernel module\n");
+        else
+        {
+                /* Get current segment descriptor */
+                fs = get_fs();
+
+                /* Set segment descriptor associated to kernel space */
+                set_fs(get_ds());
+
+                /* Read a file */
+                f->f_op->read(f, buf, 128, &f->f_pos);
+
+                /* Restore segment descriptor */
+                set_fs(fs);
+
+                /* See what was read from a file */
+                printk(KERN_INFO "buf:%s\n", buf);
+        }
+
+        filp_close(f,NULL);
+
+        return 0;
 
         /* Check if GPIO is allright */
         if (!gpio_is_valid(gpioOutput))
@@ -115,6 +156,8 @@ int result = 0;
 static void __exit input_output_gpio_exit(void)
 {
         printk(KERN_INFO "Leaving the driver \n");
+
+        return;
 
         /* Set the GPIO pin off */
         gpio_set_value(gpioOutput, 0);
