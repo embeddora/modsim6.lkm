@@ -28,27 +28,7 @@
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * Abstract: we all but me are made of stars.
- *                         ___
- *                        ',_`""\        .---,
- *                           \   :-""``/`    |
- *                            `;'     //`\   /
- *                            /   __     |   ('.
- *                           |_ ./O)\     \  `) \
- *                          _/-.    `      `"`  |`.
- *                      .-=; `                  /  ;.
- *                     /o o \   ,_,           .'  '  ;
- *                     L._._;_.-'           .'   '   ;'
- *                       `'-.`           .-'        ,
- *                           `.        .'       ..;'
- *                             '-._. -'     ..-'
- *                              ./, \ ...--'
- *                            ,',\../',
- *                          ," ` /. .  ;
- *                          :   ; :  : :
- *                          `.,'  `,   ;
- *                           "     :   :
- *                                  ",'
+ * Abstract: prototypes of funcitons to process structure points.
  */
 
 /* TODO: add comment */

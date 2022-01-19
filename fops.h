@@ -28,27 +28,7 @@
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * Abstract: we all but me are made of stars.
- *                         ___
- *                        ',_`""\        .---,
- *                           \   :-""``/`    |
- *                            `;'     //`\   /
- *                            /   __     |   ('.
- *                           |_ ./O)\     \  `) \
- *                          _/-.    `      `"`  |`.
- *                      .-=; `                  /  ;.
- *                     /o o \   ,_,           .'  '  ;
- *                     L._._;_.-'           .'   '   ;'
- *                       `'-.`           .-'        ,
- *                           `.        .'       ..;'
- *                             '-._. -'     ..-'
- *                              ./, \ ...--'
- *                            ,',\../',
- *                          ," ` /. .  ;
- *                          :   ; :  : :
- *                          `.,'  `,   ;
- *                           "     :   :
- *                                  ",'
+ * Abstract: prototypes of file operations done in kernel space
  */
 
 /* We refuse to read strings larger that this */
@@ -59,10 +39,8 @@
 #define KNOP_EOF	(-2)
 
 /*
- * Tis fella has written rillicool wrapper fo da 'filp_open()', et al:
+ * An idea and (some part of) implementation has been ingerited from:
  * https://stackoverflow.com/questions/1184274/read-write-files-within-a-linux-kernel-module
- * Actually dat woz me who shoulda do 'at (shit on me). But, anyway, I gonna
- * use dat wrapper as was just mine, all mine. (Shit on me once more.)
  */
 
 struct file *file_open(const char *path, int flags, int rights);
